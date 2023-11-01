@@ -1,5 +1,6 @@
 
 using Bakasov.Core.Interfaces;
+using Bakasov.Core.Repositories.Products;
 using Bakasov.Database;
 using Microsoft.EntityFrameworkCore;
 
@@ -22,6 +23,7 @@ public class Program
         });
 
         builder.Services.AddScoped<IBakasovDbContext, BakasovDbContext>();
+        builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
         #endregion
 
