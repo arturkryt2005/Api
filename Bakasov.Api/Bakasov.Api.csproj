@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Bakasov.Core\Bakasov.Core.csproj" />
     <ProjectReference Include="..\Bakasov.Database\Bakasov.Database.csproj" />
   </ItemGroup>
 

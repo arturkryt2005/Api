@@ -1,0 +1,82 @@
+﻿using Bakasov.Core.Entities;
+using Bakasov.Core.Repositories.Products;
+using Microsoft.AspNetCore.Mvc;
+
+namespace Bakasov.Api.Controllers;
+
+/// <summary>
+/// Class ProductController.
+/// Implements the <see cref="ControllerBase" />
+/// </summary>
+/// <seealso cref="ControllerBase" />
+[ApiController]
+[Route("api/[controller]")]
+public class ProductController : ControllerBase
+{
+    /// <summary>
+    /// The product repository
+    /// </summary>
+    private readonly IProductRepository _productRepository;
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="ProductController" /> class.
+    /// </summary>
+    /// <param name="productRepository">The product repository.</param>
+    public ProductController(IProductRepository productRepository)
+    {
+        _productRepository = productRepository;
+    }
+
+    /// <summary>
+    /// Gets the products.
+    /// </summary>
+    /// <returns>List&lt;Product&gt;.</returns>
+    [HttpGet]
+    public async Task<List<Product>> GetProducts()
+    {
+        return await _productRepository.GetProductsAsync();
+    }
+
+    /// <summary>
+    /// Adds the product.
+    /// </summary>
+    /// <param name="product">The product.</param>
+    /// <returns>IActionResult.</returns>
+    [HttpPost]
+    public async Task<IActionResult> AddProduct([FromQuery] Product product)
+    {
+        try
+        {
+            await _productRepository.AddProductAsync(product);
+            return Ok(product);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e);
+        }
+    }
+
+    /// <summary>
+    /// Deletes the product.
+    /// </summary>
+    /// <param name="id">The identifier.</param>
+    /// <returns>IActionResult.</returns>
+    [HttpDelete]
+    public async Task<IActionResult> DeleteProduct([FromQuery] int id)
+    {
+        var result = await _productRepository.DeleteProductAsync(id);
+        return Ok(result ? $"Объект с id = {id} удален." : $"Удаляемый объект с id = {id} не найден.");
+    }
+
+    /// <summary>
+    /// Updates the product.
+    /// </summary>
+    /// <param name="product">The product.</param>
+    /// <returns>IActionResult.</returns>
+    [HttpPut]
+    public async Task<IActionResult> UpdateProduct([FromQuery] Product product)
+    {
+        var result = await _productRepository.UpdateProductAsync(product);
+        return Ok(result ? $"Объект с id = {product.Id} обновлен." : $"Объект с id = {product.Id} не найден.");
+    }
+}
