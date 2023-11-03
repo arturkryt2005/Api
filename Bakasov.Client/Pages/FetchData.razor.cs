@@ -25,6 +25,9 @@ public partial class FetchData
     [Inject]
     private IProductService ProductService { get; set; } = null!;
 
+    [Inject]
+    private IMessageService MessageService { get; set; }
+
     /// <summary>
     /// The table
     /// </summary>
@@ -69,15 +72,7 @@ public partial class FetchData
 
     }
 
-    public partial class Insert
-    {
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public string Price { get; set; }
-
-    }
-
-    private Insert insert = new Insert();
+    private Product insert = new Product();
 
     private void OnFinish(EditContext editContext)
     {
@@ -89,4 +84,13 @@ public partial class FetchData
         Console.WriteLine("Failed");
     }
 
+    private async Task CreateAsync()
+    {
+        var response = await ProductService.CreateAsync(insert);
+
+        if (response.IsSuccessStatusCode)
+            await MessageService.Success("Товар успешно добавлен.");
+        else
+            await MessageService.Error(response.ReasonPhrase);
+    }
 }

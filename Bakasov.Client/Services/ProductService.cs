@@ -49,10 +49,9 @@ public class ProductService : IProductService
         return response;
     }
 
-    public virtual async Task <HttpResponseMessage> CreateAsync(Product product)
+    public virtual async Task<HttpResponseMessage> CreateAsync(Product product)
     {
-        var result = await _httpClient?.PostAsJsonAsync("api/Product"!;
+        var result = await _httpClient?.PostAsJsonAsync("api/Product"!, product)!;
         return result;
     }
-   
 }

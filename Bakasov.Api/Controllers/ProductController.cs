@@ -3,7 +3,6 @@ using Bakasov.Core.Repositories.Products;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Bakasov.Api.Controllers;
-
 /// <summary>
 /// Class ProductController.
 /// Implements the <see cref="ControllerBase" />
@@ -43,7 +42,7 @@ public class ProductController : ControllerBase
     /// <param name="product">The product.</param>
     /// <returns>IActionResult.</returns>
     [HttpPost]
-    public async Task<IActionResult> AddProduct([FromQuery] Product product)
+    public async Task<IActionResult> AddProduct([FromBody] Product product)
     {
         try
         {
