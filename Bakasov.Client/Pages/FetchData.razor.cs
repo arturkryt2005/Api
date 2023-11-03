@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
+using Microsoft.Extensions.Caching.Distributed;
+using static Bakasov.Client.Pages.FetchData;
 
 namespace Bakasov.Client.Pages;
 
@@ -58,14 +60,10 @@ public partial class FetchData
     /// On initialized as an asynchronous operation.
     /// </summary>
     /// <returns>A Task representing the asynchronous operation.</returns>
-    protected async Task OnInitializedAsync()
+    protected override async Task OnInitializedAsync()
     {
         Products = await ProductService.GetProductsAsync();
     }
-
-    /// <summary>
-    /// Called when [change].
-    /// </summary>
     private void OnChange()
     {
 
