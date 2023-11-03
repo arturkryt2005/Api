@@ -1,4 +1,5 @@
 ﻿using Bakasov.Core.Entities;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Bakasov.Client.Services;
 
@@ -12,6 +13,8 @@ public interface IProductService
     /// </summary>
     /// <returns>Task&lt;List&lt;Product&gt;&gt;.</returns>
     Task<List<Product>> GetProductsAsync();
+
+    Task<HttpResponseMessage> CreateAsync(Product product);
 }
 
 /// <summary>
@@ -25,6 +28,7 @@ public class ProductService : IProductService
     /// The HTTP client
     /// </summary>
     private readonly HttpClient _httpClient;
+    protected virtual string BasePath => typeof(Product).Name.ToLower();
 
     /// <summary>
     /// Initializes a new instance of the <see cref="ProductService"/> class.
@@ -43,5 +47,11 @@ public class ProductService : IProductService
     {
         var response = await _httpClient.GetFromJsonAsync<List<Product>>("api/Product");
         return response;
+    }
+
+    public virtual async Task<HttpResponseMessage> CreateAsync(Product product)
+    {
+        var result = await _httpClient?.PostAsJsonAsync("api/Product"!, product)!;
+        return result;
     }
 }

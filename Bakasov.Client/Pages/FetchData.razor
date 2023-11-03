@@ -18,7 +18,7 @@
     <PropertyColumn Property="c=>c.Price" Sortable />
 </Table>
 
- <Form Model="@insert"
+ <Form Model="@_product"
        OnFinish="OnFinish"
        OnFinishFailed="OnFinishFailed"
        LabelColSpan="8"
@@ -31,9 +31,9 @@
      </FormItem>
      <FormItem>
          <Input @bind-Value="@context.Price" />
-     </FormItem>
+     </FormItem>\
      <FormItem WrapperColOffset="8" WrapperColSpan="16">
-         <Button Type="@ButtonType.Primary" HtmlType="submit">
+         <Button Type="@ButtonType.Primary" HtmlType="submit" @onclick="CreateAsync">
              Сохранить
          </Button>
      </FormItem>

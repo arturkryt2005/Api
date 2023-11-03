@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
+using Microsoft.Extensions.Caching.Distributed;
+using static Bakasov.Client.Pages.FetchData;
 
 namespace Bakasov.Client.Pages;
 
@@ -22,6 +24,9 @@ public partial class FetchData
     /// <value>The product service.</value>
     [Inject]
     private IProductService ProductService { get; set; } = null!;
+
+    [Inject]
+    private IMessageService MessageService { get; set; }
 
     /// <summary>
     /// The table
@@ -58,28 +63,16 @@ public partial class FetchData
     /// On initialized as an asynchronous operation.
     /// </summary>
     /// <returns>A Task representing the asynchronous operation.</returns>
-    protected async Task OnInitializedAsync()
+    protected override async Task OnInitializedAsync()
     {
         Products = await ProductService.GetProductsAsync();
     }
-
-    /// <summary>
-    /// Called when [change].
-    /// </summary>
     private void OnChange()
     {
 
     }
 
-    public partial class Insert
-    {
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public string Price { get; set; }
-
-    }
-
-    private Insert insert = new Insert();
+    private Product _product = new Product();
 
     private void OnFinish(EditContext editContext)
     {
@@ -91,4 +84,13 @@ public partial class FetchData
         Console.WriteLine("Failed");
     }
 
+    private async Task CreateAsync()
+    {
+        var response = await ProductService.CreateAsync(_product);
+
+        if (response.IsSuccessStatusCode)
+            await MessageService.Success("Товар успешно добавлен.");
+        else
+            await MessageService.Error(response.ReasonPhrase);
+    }
 }
