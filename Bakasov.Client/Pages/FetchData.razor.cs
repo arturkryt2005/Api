@@ -2,12 +2,16 @@
 using Bakasov.Client.Services;
 using Bakasov.Core.Entities;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Forms;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel;
 
 namespace Bakasov.Client.Pages;
 
 /// <summary>
 /// Class FetchData.
-/// Implements the <see cref="ComponentBase" />
+/// Implements the <see cref="Component
+/// " />
 /// </summary>
 /// <seealso cref="ComponentBase" />
 public partial class FetchData
@@ -54,7 +58,7 @@ public partial class FetchData
     /// On initialized as an asynchronous operation.
     /// </summary>
     /// <returns>A Task representing the asynchronous operation.</returns>
-    protected override async Task OnInitializedAsync()
+    protected async Task OnInitializedAsync()
     {
         Products = await ProductService.GetProductsAsync();
     }
@@ -66,4 +70,25 @@ public partial class FetchData
     {
 
     }
+
+    public partial class Insert
+    {
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public string Price { get; set; }
+
+    }
+
+    private Insert insert = new Insert();
+
+    private void OnFinish(EditContext editContext)
+    {
+        Console.WriteLine("Success");
+    }
+
+    private void OnFinishFailed(EditContext editContext)
+    {
+        Console.WriteLine("Failed");
+    }
+
 }

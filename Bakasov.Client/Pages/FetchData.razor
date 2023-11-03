@@ -17,3 +17,26 @@
     <PropertyColumn Property="c=>c.Description" Sortable />
     <PropertyColumn Property="c=>c.Price" Sortable />
 </Table>
+
+ <Form Model="@insert"
+       OnFinish="OnFinish"
+       OnFinishFailed="OnFinishFailed"
+       LabelColSpan="8"
+       WrapperColSpan="16">
+     <FormItem>
+         <Input @bind-Value="@context.Name" />
+     </FormItem>
+     <FormItem>
+         <Input @bind-Value="@context.Description" />
+     </FormItem>
+     <FormItem>
+         <Input @bind-Value="@context.Price" />
+     </FormItem>
+     <FormItem WrapperColOffset="8" WrapperColSpan="16">
+         <Button Type="@ButtonType.Primary" HtmlType="submit">
+             Сохранить
+         </Button>
+     </FormItem>
+ </Form>
+
+
