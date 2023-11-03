@@ -13,8 +13,8 @@ public interface IProductService
     /// </summary>
     /// <returns>Task&lt;List&lt;Product&gt;&gt;.</returns>
     Task<List<Product>> GetProductsAsync();
-    Task<HttpResponseMessage> CreateAsync(Product product);
 
+    Task<HttpResponseMessage> CreateAsync(Product product);
 }
 
 /// <summary>

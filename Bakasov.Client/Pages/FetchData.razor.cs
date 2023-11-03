@@ -72,7 +72,7 @@ public partial class FetchData
 
     }
 
-    private Product insert = new Product();
+    private Product _product = new Product();
 
     private void OnFinish(EditContext editContext)
     {
@@ -86,7 +86,7 @@ public partial class FetchData
 
     private async Task CreateAsync()
     {
-        var response = await ProductService.CreateAsync(insert);
+        var response = await ProductService.CreateAsync(_product);
 
         if (response.IsSuccessStatusCode)
             await MessageService.Success("Товар успешно добавлен.");
