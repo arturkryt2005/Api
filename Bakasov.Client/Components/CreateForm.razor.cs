@@ -18,8 +18,13 @@ namespace Bakasov.Client.Components
 
         private Product _product = new();
 
+        private bool IsLoading { get; set; }
+
         private async Task CreateAsync()
         {
+            IsLoading = true;
+            StateHasChanged();
+
             var response = await ProductService.CreateAsync(_product);
 
             if (response.IsSuccessStatusCode)
@@ -28,6 +33,9 @@ namespace Bakasov.Client.Components
                 await MessageService.Error(response.ReasonPhrase);
 
             NavigationManager.NavigateTo("/fetchdata", true);
+
+            IsLoading = false;
+            StateHasChanged();
         }
     }
 }

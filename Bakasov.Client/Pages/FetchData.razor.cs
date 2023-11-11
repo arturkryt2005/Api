@@ -1,5 +1,6 @@
 ﻿using AntDesign;
 using Bakasov.Client.Services;
+using Bakasov.Client.Shared;
 using Bakasov.Core.Entities;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
@@ -58,6 +59,8 @@ public partial class FetchData
     /// </summary>
     private IEnumerable<Product> _selectedRows;
 
+    private bool IsLoading { get; set; }
+
     /// <summary>
     /// On initialized as an asynchronous operation.
     /// </summary>
@@ -69,7 +72,13 @@ public partial class FetchData
 
     private async Task FillTable() 
     {
+        IsLoading = true;
+        StateHasChanged();
+
         Products = await ProductService.GetProductsAsync();
+
+        IsLoading = false;
+        StateHasChanged();
     }
 
     private void OnChange()
@@ -80,12 +89,18 @@ public partial class FetchData
     
     private async Task DeleteAsync(int id)
     {
+        IsLoading = true;
+        StateHasChanged();
+
         var response = await ProductService.DeleteAsync(id);
 
         if (response.IsSuccessStatusCode)
             await MessageService.Success("Товар успешно удален.");
         else
             await MessageService.Error(response.ReasonPhrase);
+
+        IsLoading = false;
+        StateHasChanged();
 
         await FillTable();
 

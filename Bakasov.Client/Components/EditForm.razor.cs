@@ -1,5 +1,6 @@
 ﻿using AntDesign;
 using Bakasov.Client.Services;
+using Bakasov.Client.Shared;
 using Bakasov.Core.Entities;
 using Microsoft.AspNetCore.Components;
 
@@ -21,6 +22,8 @@ namespace Bakasov.Client.Components
 
         private Product _product = new();
 
+        private bool IsLoading { get; set; }
+
         protected override async Task OnInitializedAsync()
         {
             _product = (await ProductService.GetProductsAsync())?
@@ -29,12 +32,18 @@ namespace Bakasov.Client.Components
 
         private async Task EditAsync()
         {
+            IsLoading = true;
+            StateHasChanged();
+
             var response = await ProductService.UpdateAsync(_product);
 
             if (response.IsSuccessStatusCode)
                 await MessageService.Success($"Товар {_product.Id} успешно обновлен.");
             else
                 await MessageService.Error(response.ReasonPhrase);
+
+            IsLoading = false;
+            StateHasChanged();
 
             NavigationManager.NavigateTo("/fetchdata", true);
         }
