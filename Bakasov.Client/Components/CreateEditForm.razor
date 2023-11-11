@@ -1,0 +1,23 @@
+﻿@page "/create-form"
+
+<PageTitle>Добавление товара</PageTitle>
+
+<Form Model="@_product"
+      LabelColSpan="8"
+      WrapperColSpan="16">
+    <FormItem Label="Наименование товара">
+        <Input @bind-Value="@context.Name" />
+    </FormItem>
+    <FormItem Label="Описание товара">
+        <Input @bind-Value="@context.Description" />
+    </FormItem>
+    <FormItem Label="Цена товара">
+        <Input @bind-Value="@context.Price" />
+    </FormItem>
+    <FormItem WrapperColOffset="8" WrapperColSpan="16">
+        <Button Type="@ButtonType.Primary" HtmlType="submit" @onclick="CreateAsync">
+            Сохранить товар
+        </Button>
+    </FormItem>
+</Form>
+

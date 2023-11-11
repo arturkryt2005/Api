@@ -3,17 +3,13 @@ using Bakasov.Client.Services;
 using Bakasov.Core.Entities;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
-using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
-using Microsoft.Extensions.Caching.Distributed;
-using static Bakasov.Client.Pages.FetchData;
 
 namespace Bakasov.Client.Pages;
 
 /// <summary>
 /// Class FetchData.
-/// Implements the <see cref="Component
-/// " />
+/// Implements the <see cref="Component" />
 /// </summary>
 /// <seealso cref="ComponentBase" />
 public partial class FetchData
@@ -26,7 +22,10 @@ public partial class FetchData
     private IProductService ProductService { get; set; } = null!;
 
     [Inject]
-    private IMessageService MessageService { get; set; }
+    private IMessageService MessageService { get; set; } = null!;
+
+    [Inject]
+    private NavigationManager NavigationManager { get; set; }
 
     /// <summary>
     /// The table
@@ -65,32 +64,36 @@ public partial class FetchData
     /// <returns>A Task representing the asynchronous operation.</returns>
     protected override async Task OnInitializedAsync()
     {
+        await FillTable();
+    }
+
+    private async Task FillTable() 
+    {
         Products = await ProductService.GetProductsAsync();
     }
+
     private void OnChange()
     {
 
     }
 
-    private Product _product = new Product();
-
-    private void OnFinish(EditContext editContext)
+    
+    private async Task DeleteAsync(int id)
     {
-        Console.WriteLine("Success");
-    }
-
-    private void OnFinishFailed(EditContext editContext)
-    {
-        Console.WriteLine("Failed");
-    }
-
-    private async Task CreateAsync()
-    {
-        var response = await ProductService.CreateAsync(_product);
+        var response = await ProductService.DeleteAsync(id);
 
         if (response.IsSuccessStatusCode)
-            await MessageService.Success("Товар успешно добавлен.");
+            await MessageService.Success("Товар успешно удален.");
         else
             await MessageService.Error(response.ReasonPhrase);
+
+        await FillTable();
+
+        StateHasChanged();
+    }
+
+    private void NavigateToCreateProduct()
+    {
+        NavigationManager.NavigateTo("/create-form");
     }
 }

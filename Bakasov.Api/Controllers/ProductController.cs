@@ -60,8 +60,8 @@ public class ProductController : ControllerBase
     /// </summary>
     /// <param name="id">The identifier.</param>
     /// <returns>IActionResult.</returns>
-    [HttpDelete]
-    public async Task<IActionResult> DeleteProduct([FromQuery] int id)
+    [HttpDelete("{id:int}")]
+    public async Task<IActionResult> DeleteProduct(int id)
     {
         var result = await _productRepository.DeleteProductAsync(id);
         return Ok(result ? $"Объект с id = {id} удален." : $"Удаляемый объект с id = {id} не найден.");

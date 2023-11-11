@@ -6,37 +6,23 @@
        TItem="Product"
        DataSource="@Products"
        Total="_total"
-       @bind-PageIndex="_pageIndex"
-       @bind-PageSize="_pageSize"
-       @bind-SelectedRows="_selectedRows"
+    @bind-PageIndex="_pageIndex"
+    @bind-PageSize="_pageSize"
+    @bind-SelectedRows="_selectedRows"
        OnChange="OnChange"
        Size="TableSize.Small">
     <Selection Key="@(context.Id.ToString())" />
     <PropertyColumn Property="c=>c.Id" Sortable />
-    <PropertyColumn Property="c=>c.Name" Sortable />
-    <PropertyColumn Property="c=>c.Description" Sortable />
-    <PropertyColumn Property="c=>c.Price" Sortable />
-</Table>
+     <PropertyColumn Property="c=>c.Name" Sortable />
+     <PropertyColumn Property="c=>c.Description" Sortable />
+     <PropertyColumn Property="c=>c.Price" Sortable />
+     <ActionColumn Title="Action">
+         <Space>
+             <SpaceItem>
+                 <Button Danger OnClick="()=>DeleteAsync(context.Id)">Удалить</Button>
+             </SpaceItem>
+         </Space>
+     </ActionColumn>
+ </Table>
 
- <Form Model="@_product"
-       OnFinish="OnFinish"
-       OnFinishFailed="OnFinishFailed"
-       LabelColSpan="8"
-       WrapperColSpan="16">
-     <FormItem>
-         <Input @bind-Value="@context.Name" />
-     </FormItem>
-     <FormItem>
-         <Input @bind-Value="@context.Description" />
-     </FormItem>
-     <FormItem>
-         <Input @bind-Value="@context.Price" />
-     </FormItem>\
-     <FormItem WrapperColOffset="8" WrapperColSpan="16">
-         <Button Type="@ButtonType.Primary" HtmlType="submit" @onclick="CreateAsync">
-             Сохранить
-         </Button>
-     </FormItem>
- </Form>
-
-
+ <Button OnClick="NavigateToCreateProduct">Добавить товар</Button>
