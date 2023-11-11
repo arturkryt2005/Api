@@ -15,6 +15,10 @@ public interface IProductService
     Task<List<Product>> GetProductsAsync();
 
     Task<HttpResponseMessage> CreateAsync(Product product);
+
+    Task<HttpResponseMessage> DeleteAsync(int id);
+
+    Task<HttpResponseMessage> UpdateAsync(Product product);
 }
 
 /// <summary>
@@ -28,6 +32,7 @@ public class ProductService : IProductService
     /// The HTTP client
     /// </summary>
     private readonly HttpClient _httpClient;
+
     protected virtual string BasePath => typeof(Product).Name.ToLower();
 
     /// <summary>
@@ -49,9 +54,21 @@ public class ProductService : IProductService
         return response;
     }
 
-    public virtual async Task<HttpResponseMessage> CreateAsync(Product product)
+    public async Task<HttpResponseMessage> CreateAsync(Product product)
     {
         var result = await _httpClient?.PostAsJsonAsync("api/Product"!, product)!;
+        return result;
+    }
+
+    public async Task<HttpResponseMessage> DeleteAsync(int id)
+    {
+        var result = await _httpClient.DeleteAsync($"api/Product/{id}");
+        return result;
+    }
+
+    public async Task<HttpResponseMessage> UpdateAsync(Product product)
+    {
+        var result = await _httpClient.PutAsJsonAsync($"api/Product", product);
         return result;
     }
 }

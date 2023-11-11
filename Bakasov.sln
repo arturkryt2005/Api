@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bakasov.Api", "Bakasov.Api\Bakasov.Api.csproj", "{2855D736-0133-4448-BCA8-3B1B6B1D5631}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bakasov.Api", "Bakasov.Api\Bakasov.Api.csproj", "{2855D736-0133-4448-BCA8-3B1B6B1D5631}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bakasov.Client", "Bakasov.Client\Bakasov.Client.csproj", "{FA532BB3-DD3F-4771-BE35-2FA929878E2B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bakasov.Client", "Bakasov.Client\Bakasov.Client.csproj", "{FA532BB3-DD3F-4771-BE35-2FA929878E2B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bakasov.Core", "Bakasov.Core\Bakasov.Core.csproj", "{FACCFFCC-0C3D-44EF-871A-5253B18416B6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bakasov.Core", "Bakasov.Core\Bakasov.Core.csproj", "{FACCFFCC-0C3D-44EF-871A-5253B18416B6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bakasov.Database", "Bakasov.Database\Bakasov.Database.csproj", "{51F365CE-1149-4A31-91D4-C1BC6E7E6285}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bakasov.Database", "Bakasov.Database\Bakasov.Database.csproj", "{51F365CE-1149-4A31-91D4-C1BC6E7E6285}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
