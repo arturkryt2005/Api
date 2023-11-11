@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace Bakasov.Client.Components
 {
-    public partial class CreateEditForm
+    public partial class CreateForm
     {
         [Inject]
         private IProductService ProductService { get; set; } = null!;

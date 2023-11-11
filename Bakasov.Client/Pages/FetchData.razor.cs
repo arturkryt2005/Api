@@ -92,6 +92,11 @@ public partial class FetchData
         StateHasChanged();
     }
 
+    private async Task EditAsync(int id)
+    {
+        NavigationManager.NavigateTo($"/edit-form/{id}");
+    }
+
     private void NavigateToCreateProduct()
     {
         NavigationManager.NavigateTo("/create-form");

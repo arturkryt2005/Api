@@ -17,6 +17,8 @@ public interface IProductService
     Task<HttpResponseMessage> CreateAsync(Product product);
 
     Task<HttpResponseMessage> DeleteAsync(int id);
+
+    Task<HttpResponseMessage> UpdateAsync(Product product);
 }
 
 /// <summary>
@@ -61,6 +63,12 @@ public class ProductService : IProductService
     public async Task<HttpResponseMessage> DeleteAsync(int id)
     {
         var result = await _httpClient.DeleteAsync($"api/Product/{id}");
+        return result;
+    }
+
+    public async Task<HttpResponseMessage> UpdateAsync(Product product)
+    {
+        var result = await _httpClient.PutAsJsonAsync($"api/Product", product);
         return result;
     }
 }

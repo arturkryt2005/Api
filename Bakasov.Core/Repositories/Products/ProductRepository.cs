@@ -104,9 +104,7 @@ public class ProductRepository : IProductRepository
     /// <returns>A Task&lt;System.Boolean&gt; representing the asynchronous operation.</returns>
     public async Task<bool> UpdateProductAsync(Product product)
     {
-        var updatedProduct = await _dbContext.Products.FirstOrDefaultAsync(p => p.Id == product.Id);
-
-        if (updatedProduct != null)
+        if (product != null)
         {
             _dbContext.Products.Update(product);
             await ((DbContext)_dbContext).SaveChangesAsync();

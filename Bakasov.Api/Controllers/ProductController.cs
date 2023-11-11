@@ -73,7 +73,7 @@ public class ProductController : ControllerBase
     /// <param name="product">The product.</param>
     /// <returns>IActionResult.</returns>
     [HttpPut]
-    public async Task<IActionResult> UpdateProduct([FromQuery] Product product)
+    public async Task<IActionResult> UpdateProduct([FromBody] Product product)
     {
         var result = await _productRepository.UpdateProductAsync(product);
         return Ok(result ? $"Объект с id = {product.Id} обновлен." : $"Объект с id = {product.Id} не найден.");
