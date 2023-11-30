@@ -1,6 +1,12 @@
 
 using Bakasov.Core.Interfaces;
+using Bakasov.Core.Repositories.Brands;
+using Bakasov.Core.Repositories.Categories;
+using Bakasov.Core.Repositories.Orders;
 using Bakasov.Core.Repositories.Products;
+using Bakasov.Core.Repositories.Sizes;
+using Bakasov.Core.Repositories.Statuses;
+using Bakasov.Core.Repositories.Users;
 using Bakasov.Database;
 using Microsoft.EntityFrameworkCore;
 
@@ -24,6 +30,12 @@ public class Program
 
         builder.Services.AddScoped<IBakasovDbContext, BakasovDbContext>();
         builder.Services.AddScoped<IProductRepository, ProductRepository>();
+        builder.Services.AddScoped<IBrandRepository, BrandRepository>();
+        builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+        builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+        builder.Services.AddScoped<ISizeRepository, SizeRepository>();
+        builder.Services.AddScoped<IStatusRepository, StatusRepository>();
+        builder.Services.AddScoped<IUserRepository, UserRepository>();
 
         #endregion
 

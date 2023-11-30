@@ -1,4 +1,4 @@
-﻿using Bakasov.Core.Entities;
+﻿using Bakasov.Core.Entities.Products;
 using Bakasov.Core.Repositories.Products;
 using Microsoft.AspNetCore.Mvc;
 
@@ -33,7 +33,7 @@ public class ProductController : ControllerBase
     [HttpGet]
     public async Task<List<Product>> GetProducts()
     {
-        return await _productRepository.GetProductsAsync();
+        return await _productRepository.GetListAsync();
     }
 
     /// <summary>
@@ -46,7 +46,7 @@ public class ProductController : ControllerBase
     {
         try
         {
-            await _productRepository.AddProductAsync(product);
+            await _productRepository.AddAsync(product);
             return Ok(product);
         }
         catch (Exception e)
@@ -63,7 +63,7 @@ public class ProductController : ControllerBase
     [HttpDelete("{id:int}")]
     public async Task<IActionResult> DeleteProduct(int id)
     {
-        var result = await _productRepository.DeleteProductAsync(id);
+        var result = await _productRepository.DeleteAsync(id);
         return Ok(result ? $"Объект с id = {id} удален." : $"Удаляемый объект с id = {id} не найден.");
     }
 
@@ -75,7 +75,7 @@ public class ProductController : ControllerBase
     [HttpPut]
     public async Task<IActionResult> UpdateProduct([FromBody] Product product)
     {
-        var result = await _productRepository.UpdateProductAsync(product);
+        var result = await _productRepository.UpdateAsync(product);
         return Ok(result ? $"Объект с id = {product.Id} обновлен." : $"Объект с id = {product.Id} не найден.");
     }
 }

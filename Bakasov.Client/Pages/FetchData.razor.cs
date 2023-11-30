@@ -5,6 +5,7 @@ using Bakasov.Core.Entities;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
 using System.ComponentModel;
+using Bakasov.Core.Entities.Products;
 
 namespace Bakasov.Client.Pages;
 
