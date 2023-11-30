@@ -1,6 +1,8 @@
-﻿namespace Bakasov.Core.Entities.Brands;
+﻿using Bakasov.Core.Interfaces;
 
-public class Brand
+namespace Bakasov.Core.Entities.Brands;
+
+public class Brand : IHaveId
 {
     public int Id { get; set; }
 

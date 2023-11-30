@@ -1,6 +1,8 @@
-﻿namespace Bakasov.Core.Entities.Categories;
+﻿using Bakasov.Core.Interfaces;
 
-public class Category
+namespace Bakasov.Core.Entities.Categories;
+
+public class Category : IHaveId
 {
     public int Id { get; set; }
 

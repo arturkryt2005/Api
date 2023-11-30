@@ -1,6 +1,8 @@
-﻿namespace Bakasov.Core.Entities.Sizes;
+﻿using Bakasov.Core.Interfaces;
 
-public class Size
+namespace Bakasov.Core.Entities.Sizes;
+
+public class Size : IHaveId
 {
     public int Id {  get; set; }
         

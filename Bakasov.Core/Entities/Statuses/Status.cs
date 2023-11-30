@@ -1,6 +1,8 @@
-﻿namespace Bakasov.Core.Entities.Statuses;
+﻿using Bakasov.Core.Interfaces;
 
-public class Status
+namespace Bakasov.Core.Entities.Statuses;
+
+public class Status : IHaveId
 {
     public int Id { get; set; }
 

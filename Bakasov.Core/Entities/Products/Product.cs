@@ -1,10 +1,11 @@
 ﻿using Bakasov.Core.Entities.Brands;
 using Bakasov.Core.Entities.Categories;
 using Bakasov.Core.Entities.Sizes;
+using Bakasov.Core.Interfaces;
 
 namespace Bakasov.Core.Entities.Products;
 
-public class Product
+public class Product : IHaveId
 {
     public int Id { get; set; }
 

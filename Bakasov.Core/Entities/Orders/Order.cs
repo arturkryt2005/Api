@@ -1,9 +1,10 @@
 ﻿using Bakasov.Core.Entities.Statuses;
 using Bakasov.Core.Entities.Users;
+using Bakasov.Core.Interfaces;
 
 namespace Bakasov.Core.Entities.Orders;
 
-public class Order
+public class Order : IHaveId
 {
     public int Id { get; set; }
     

@@ -1,9 +1,10 @@
 ﻿using Bakasov.Core.Entities.Orders;
 using Bakasov.Core.Entities.Products;
+using Bakasov.Core.Interfaces;
 
 namespace Bakasov.Core.Entities.OrderProducts;
 
-public class OrderProduct
+public class OrderProduct : IHaveId
 {
     public int Id { get; set; }
 

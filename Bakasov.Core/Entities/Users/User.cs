@@ -1,6 +1,8 @@
-﻿namespace Bakasov.Core.Entities.Users;
+﻿using Bakasov.Core.Interfaces;
 
-public class User
+namespace Bakasov.Core.Entities.Users;
+
+public class User : IHaveId
 {
     public int Id { get; set; }
 
