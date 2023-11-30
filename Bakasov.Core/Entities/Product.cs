@@ -28,4 +28,14 @@ public class Product
     /// </summary>
     /// <value>The price.</value>
     public decimal Price { get; set; }
+
+
+
+    public int BrandId { get; set;}
+
+
+    public int SizeId { get; set;}
+
+
+    public int CategoryId { get; set;}
 }
