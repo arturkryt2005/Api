@@ -2,6 +2,7 @@
 using Bakasov.Client.Services;
 using Bakasov.Client.Shared;
 using Bakasov.Core.Entities;
+using Bakasov.Core.Entities.Products;
 using Microsoft.AspNetCore.Components;
 
 namespace Bakasov.Client.Components

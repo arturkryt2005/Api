@@ -1,4 +1,5 @@
 ﻿using Bakasov.Core.Entities;
+using Bakasov.Core.Entities.Products;
 using Bakasov.Core.Repositories.Products;
 using Microsoft.AspNetCore.Mvc;
 
