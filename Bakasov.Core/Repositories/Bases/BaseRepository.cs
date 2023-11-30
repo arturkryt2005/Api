@@ -25,10 +25,11 @@ public abstract class BaseRepository<TEntity> : IBaseRepository<TEntity> where T
 
     public virtual async Task<List<TEntity>> GetListAsync()
     {
-        var products = ((DbContext)_dbContext)
+        var entities = ((DbContext)_dbContext)
             .Set<TEntity>()
             .ToList();
-        return products;
+
+        return entities;
     }
 
     public virtual async Task AddAsync(TEntity entity)
@@ -36,21 +37,24 @@ public abstract class BaseRepository<TEntity> : IBaseRepository<TEntity> where T
         await ((DbContext)_dbContext)
             .Set<TEntity>()
             .AddAsync(entity);
+
         await ((DbContext)_dbContext).SaveChangesAsync();
     }
 
     public virtual async Task<bool> DeleteAsync(int id)
     {
-        var entity = await ((DbContext)_dbContext)
+        var context = (DbContext)_dbContext;
+        var entity = await context
             .Set<TEntity>()
             .FirstOrDefaultAsync(p => p.Id == id);
 
         if (entity != null)
         {
-            ((DbContext)_dbContext)
+            context
                 .Set<TEntity>()
                 .Remove(entity);
-            await ((DbContext)_dbContext).SaveChangesAsync();
+
+            await context.SaveChangesAsync();
             return true;
         }
         else
@@ -59,12 +63,15 @@ public abstract class BaseRepository<TEntity> : IBaseRepository<TEntity> where T
 
     public virtual async Task<bool> UpdateAsync(TEntity entity)
     {
+        var context = (DbContext)_dbContext;
+
         if (entity != null)
         {
-            ((DbContext)_dbContext)
+            context
                 .Set<TEntity>()
                 .Update(entity);
-            await ((DbContext)_dbContext).SaveChangesAsync();
+#
+            await context.SaveChangesAsync();
             return true;
         }
         else
