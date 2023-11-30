@@ -70,7 +70,7 @@ public abstract class BaseRepository<TEntity> : IBaseRepository<TEntity> where T
             context
                 .Set<TEntity>()
                 .Update(entity);
-#
+
             await context.SaveChangesAsync();
             return true;
         }
