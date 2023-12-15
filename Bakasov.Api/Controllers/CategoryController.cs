@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Bakasov.Api.Controllers
 {
     /// <summary>
-    /// Class UserController.
+    /// Class CategoryController.
     /// Implements the <see cref="ControllerBase" />
     /// </summary>
     /// <seealso cref="ControllerBase" />
