@@ -13,7 +13,7 @@ public class Program
 
         builder.Services.AddHttpClient("Api", client =>
         {
-            client.BaseAddress = new Uri("http://localhost:5057");
+            client.BaseAddress = new Uri("https://localhost:7176");
         });
 
         builder.Services.AddScoped<IProductService, ProductService>();
