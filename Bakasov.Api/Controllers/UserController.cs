@@ -76,7 +76,7 @@ namespace Bakasov.Api.Controllers
         /// <param name="user">The user.</param>
         /// <returns>IActionResult.</returns>
         [HttpPut]
-        public async Task<IActionResult> Updateuser([FromBody] User user)
+        public async Task<IActionResult> UpdateUser([FromBody] User user)
         {
             var result = await _userRepository.UpdateAsync(user);
             return Ok(result ? $"Пользователь с id = {user.Id} обновлен." : $"Пользователь с id = {user.Id} не найден.");
