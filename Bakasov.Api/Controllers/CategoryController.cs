@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Bakasov.Api.Controllers
 {
     /// <summary>
-    /// Class BrandController.
+    /// Class UserController.
     /// Implements the <see cref="ControllerBase" />
     /// </summary>
     /// <seealso cref="ControllerBase" />
@@ -45,7 +45,7 @@ namespace Bakasov.Api.Controllers
         /// <param name="category">The category.</param>
         /// <returns>IActionResult.</returns>
         [HttpPost]
-        public async Task<IActionResult> AddUser([FromBody] Category category)
+        public async Task<IActionResult> AddOrder([FromBody] Category category)
         {
             try
             {

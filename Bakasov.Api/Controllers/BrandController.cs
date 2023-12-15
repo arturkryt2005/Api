@@ -45,7 +45,7 @@ namespace Bakasov.Api.Controllers
         /// <param name="brand">The brand.</param>
         /// <returns>IActionResult.</returns>
         [HttpPost]
-        public async Task<IActionResult> AddUser([FromBody] Brand brand)
+        public async Task<IActionResult> AddBrand([FromBody] Brand brand)
         {
             try
             {
