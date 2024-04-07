@@ -4,8 +4,24 @@ html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-h1:focus {
-    outline: none;
+.HockStH {
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    color: black;
+    font-family: "Yeseva One", serif;
+    font-weight: 700;
+    font-size: 3em;
+}
+
+
+.navvv {
+    background-color: #C1C1C1;
+    display: flex;
+    align-items: center;
+    height: 75px;
 }
 
 a, .btn-link {
