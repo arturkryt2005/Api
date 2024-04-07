@@ -11,7 +11,7 @@ html, body {
     margin-right: auto;
     margin-top: 20px;
     color: black;
-    font-family: "Yeseva One", serif;
+    font-family: "Yeseva One", serif;   
     font-weight: 700;
     font-size: 3em;
 }
@@ -22,7 +22,12 @@ html, body {
     display: flex;
     align-items: center;
     height: 75px;
+    transition: background-color 0.3s ease;
 }
+
+    .navvv:hover svg path {
+        fill: #A1A1A1; 
+    }
 
 a, .btn-link {
     color: #0071c1;
