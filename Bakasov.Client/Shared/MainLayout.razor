@@ -4,35 +4,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <PageTitle>Bakasov.Client</PageTitle>
     <base href="/" />
-    <script src="~/js/app.js" defer></script>
-    <script src="~/js/snow.js" defer></script>
+    <script src="/js/app.js" defer></script>
+    <script src="/js/snow.js" defer></script>
 </head>
-<body>
-    <div class="logo" style="background-image: url(/images/HS.svg)"></div>
+<body class="firstPage">
+    <svg class="logo" viewBox="0 0 77 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g clip-path="url(#clip0_150_2)">
+            <rect width="77" height="60" fill="black" />
+            <line x1="9.5" y1="13" x2="9.5" y2="43" stroke="white" />
+            <line x1="27" y1="43.5" x2="9" y2="43.5" stroke="white" />
+            <line x1="68.5" y1="13" x2="68.5" y2="43" stroke="white" />
+            <line x1="51" y1="43.5" x2="69" y2="43.5" stroke="white" />
+            <line x1="9" y1="12.5" x2="69" y2="12.5" stroke="white" />
+            <line y1="-0.5" x2="17.9321" y2="-0.5" transform="matrix(0.545838 -0.837891 0.918651 0.395069 34.7668 50.0251)" stroke="white" />
+            <g filter="url(#filter0_d_150_2)">
+                <line y1="-0.5" x2="17.9618" y2="-0.5" transform="matrix(0.553794 0.832653 -0.91563 0.402023 33.4614 35)" stroke="white" />
+            </g>
+            <g filter="url(#filter1_d_150_2)">
+                <path d="M43 49H45C45.5523 49 46 49.4477 46 50V50H43.8C43.3582 50 43 49.6418 43 49.2V49Z" fill="white" />
+            </g>
+            <path d="M35 49H33C32.4477 49 32 49.4477 32 50V50H34.6C34.8209 50 35 49.8209 35 49.6V49Z" fill="white" />
+            <path d="M42 52.1143C39.2187 52.7703 37.9288 52.7052 36 52V53.4286C36.3064 53.7807 36.6281 53.8943 37.375 54H40.375C41.0585 53.9409 41.4176 53.8655 42 53.6571V52.1143Z" stroke="white" />
+            <path d="M36.0007 50.5773C36.0062 50.5418 36.0007 50.4121 36.0007 50.4121C35.9715 50.3213 36.8903 50.0636 37.0631 50.0267C37.5452 49.9869 40.1095 49.9956 40.7501 50.0267C41.343 50.1844 41.9125 50.2889 42 50.4121V50.5773C41.9253 50.6973 41.4027 50.8605 40.5627 50.9627C40.5627 50.9627 38.0045 51.0466 37.313 50.9627C36.6215 50.8788 35.9951 50.6128 36.0007 50.5773Z" stroke="white" />
+            <path d="M36 53H42" stroke="white" />
+            <path d="M31.6452 31V29.968L32.7132 29.608L32.4492 30.004V23.56L32.7852 23.98L31.6452 23.608V22.576L35.3412 22.516V23.548L34.2372 23.98L34.5372 23.548V26.248L34.2252 25.924H37.7532L37.4292 26.248V23.56L37.7532 23.98L36.6372 23.608V22.576L40.3212 22.516V23.548L39.2532 23.968L39.5172 23.548V30.004L39.2532 29.608L40.3212 29.968V31H36.6372V29.968L37.6932 29.608L37.4292 30.004V27.1L37.7532 27.412H34.2252L34.5372 27.1V30.004L34.2852 29.608L35.3412 29.968V31H31.6452ZM43.0641 24.676C43.0641 24.876 43.1401 25.044 43.2921 25.18C43.4441 25.316 43.6441 25.436 43.8921 25.54C44.1481 25.636 44.4281 25.732 44.7321 25.828C45.0441 25.924 45.3481 26.04 45.6441 26.176C45.9481 26.304 46.2241 26.468 46.4721 26.668C46.7281 26.86 46.9321 27.104 47.0841 27.4C47.2441 27.696 47.3241 28.056 47.3241 28.48C47.3241 29.104 47.1641 29.616 46.8441 30.016C46.5241 30.408 46.0961 30.7 45.5601 30.892C45.0241 31.076 44.4361 31.168 43.7961 31.168C43.3561 31.168 42.9041 31.124 42.4401 31.036C41.9761 30.956 41.5201 30.832 41.0721 30.664L41.1441 28.24H42.3321L42.6201 29.656L42.4281 29.332C42.6521 29.436 42.8921 29.516 43.1481 29.572C43.4041 29.628 43.6521 29.656 43.8921 29.656C44.1481 29.656 44.3801 29.624 44.5881 29.56C44.7961 29.488 44.9641 29.388 45.0921 29.26C45.2201 29.124 45.2841 28.956 45.2841 28.756C45.2841 28.532 45.2081 28.352 45.0561 28.216C44.9041 28.072 44.7001 27.952 44.4441 27.856C44.1961 27.752 43.9201 27.656 43.6161 27.568C43.3121 27.48 43.0081 27.376 42.7041 27.256C42.4081 27.128 42.1321 26.968 41.8761 26.776C41.6281 26.584 41.4281 26.344 41.2761 26.056C41.1241 25.76 41.0481 25.392 41.0481 24.952C41.0481 24.36 41.1881 23.876 41.4681 23.5C41.7481 23.116 42.1281 22.832 42.6081 22.648C43.0961 22.456 43.6441 22.36 44.2521 22.36C44.6761 22.36 45.1241 22.404 45.5961 22.492C46.0761 22.58 46.5481 22.712 47.0121 22.888L46.8801 25.12H45.6441L45.3561 23.872L45.5721 24.076C45.3881 24.012 45.1921 23.964 44.9841 23.932C44.7841 23.892 44.5801 23.872 44.3721 23.872C44.1401 23.872 43.9241 23.9 43.7241 23.956C43.5241 24.004 43.3641 24.088 43.244124.208C43.1241 24.328 43.0641 24.484 43.0641 24.676Z" fill="white" />
+        </g>
+        <defs>
+            <filter id="filter0_d_150_2" x="3.46143" y="4.59802" width="110.863" height="115.358" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                <feOffset dx="20" dy="20" />
+                <feGaussianBlur stdDeviation="25" />
+                <feComposite in2="hardAlpha" operator="out" />
+                <feColorMatrix type="matrix" values="0 0 0 0 0.965 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0" />
+                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_150_2" />
+                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_150_2" result="shape" />
+            </filter>
+            <filter id="filter1_d_150_2" x="13" y="19" width="103" height="101" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                <feOffset dx="20" dy="20" />
+                <feGaussianBlur stdDeviation="25" />
+                <feComposite in2="hardAlpha" operator="out" />
+                <feColorMatrix type="matrix" values="0 0 0 0 0.965 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0" />
+                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_150_2" />
+                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_150_2" result="shape" />
+            </filter>
+        </defs>
+    </svg>
 
-    <section class="layers">
-        <div class="layers__container">
-            <div class="layers__item layer-1" style="background-image: url(/images/bgfirstpage.jpg)"></div>
-            <div class="layers__item layer-2" style="background-image: url(/images/sharf.png)"></div>
-            <div class="layers__item layer-2" style="background-image: url(/images/djersie.png)"></div>
-            <div class="hero-content">
-                <h1>Гори своим делом</h1>
-                <div class="paragraph">
-                    заряжай
-                </div>
-                <button class="start_button">
-                    Пойдём?
-                </button>
-            </div>
+	<section class="layers">
+		<div class="layers__container">
+            <div class="layers__item layer-2" style="background-image: url(/images/sharf.png);"></div>
             <div class="layers__item layer-3">
-                <canvas class="snow">
-
-                </canvas>
+                <div class="hero-content">
+                    <div class="ZagolovokFirst">
+                        <h1>Гори своим делом</h1>
+                    </div>
+                    <div class="paragraph">
+                        заряжай
+                    </div>
+                    <button class="start_button">
+                        Пойдём?
+                    </button>
+                </div>
             </div>
-            <div class="layers__item layer-4"></div>
-        </div>
+            <div class="layers__item layer_4">
+                <canvas class="snow"></canvas>
+            </div>  
+            </div>
     </section>
 
     <div style="height: 100vh"></div>
-
+    <script src="/js/app.js" defer></script>
+    <script src="/js/snow.js" defer></script>
 </body>
