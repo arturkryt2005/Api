@@ -12,6 +12,105 @@
         src: url(/fonts/merriweather-regular-italic.woff2)
     }
 
+::-moz-selection {
+    background-color: rgb(217, 52, 74);
+    color: #191919
+}
+
+::selection {
+    background-color: rgb(217, 52, 74);
+    color: #191919
+}
+.firstPage {
+    overflow: hidden;
+    position: relative;
+}
+
+.layers__container {
+    height: 100vh;
+    transform-style: preserve-3d;
+    transform: rotateX(var(--move-y)) rotateY(var(--move-x));
+    will-change: transform;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.layers__item {
+    position: absolute;
+    inset: -9vw;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.layer_2 {
+    transform: translateZ(20px);
+    z-index: 2;
+}
+
+.layer_3 {
+    transform: translateZ(100px);
+    z-index: 999;
+}
+
+.layer_4 {
+    transform: translateZ(150px);
+    z-index: 3;
+}
+
+.layer_5 {
+    transform: translateZ(200px);
+}
+
+.hero-content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    
+}
+
+.logo {
+    height: 200px;
+    width: 200px;
+    z-index: 3;
+}
+
+.ZagolovokFirst h1 {
+    font-family: Montserrat Black;
+    color: white;
+    font-size: 15vh;
+}
+
+.paragraph {
+    color: white;
+    font-family: Montserrat Medium;
+    font-size: 5vh;
+}
+
+.start_button {
+    color: white;
+    background-color: transparent;
+    border: rgb(255 255 255 / .4) 3px solid;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 10px 50px;
+    outline: none;
+    text-transform: uppercase;
+    letter-spacing: -.05vw;
+}
+
+    .start_button:hover {
+        border: 3px solid white;
+    }
+
+    .layer_5, .layer_4 {
+        pointer-events: none;
+    }
+
     a, .btn-link {
         color: #0071c1;
     }
